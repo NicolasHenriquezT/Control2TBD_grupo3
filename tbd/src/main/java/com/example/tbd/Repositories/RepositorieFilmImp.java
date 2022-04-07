@@ -12,18 +12,6 @@ public class RepositorieFilmImp implements RepositorieFilm
 {
     @Autowired 
     private Sql2o sql2o;
- 
-    @Override
-    public int countFilms()  //eliminar
-    {
-        int total = 0;
-        String sql = "SELECT COUNT(*) FROM film";
-        try(Connection conn = sql2o.open())
-        {
-            total = conn.createQuery(sql).executeScalar(Integer.class);
-        }
-        return total;
-    }
 
     @Override
     public List<Film> getAll() {
@@ -34,5 +22,25 @@ public class RepositorieFilmImp implements RepositorieFilm
             System.out.println(e.getMessage() + e.getLocalizedMessage()+" no conecté \n");
         }
         return null;
+    }
+
+    //Metodo update
+    @Override
+    public void update(Film f) {
+        String sql = "UPDATE film SET titulo="+"'"+f.getTitulo()+"'"+", categoria="+"'"+f.getCategoria()+"'"+" WHERE id = "+f.getId();
+        System.out.println(sql);
+        try(Connection conn = sql2o.open())
+        {
+            conn.createQuery(sql).executeUpdate();
+        }catch(Exception e)
+        {
+            System.out.println(e.getMessage() + e.getLocalizedMessage()+" error al actualizar\n");
+        }
+    }
+
+    @Override
+    public boolean delete(Film film) {
+        // TODO Auto-generated method stub
+        return false;
     }
 }

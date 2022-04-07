@@ -5,7 +5,8 @@ import com.example.tbd.Models.Film;
 
 public interface RepositorieFilm
 {
-    public int countFilms(); //eliminar
-    public List<Film> getAll(); 
+    public List<Film> getAll(); //Read
+    public void update(Film film);
+    public boolean delete(Film film);
 }
 
