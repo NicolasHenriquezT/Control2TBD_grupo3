@@ -8,5 +8,6 @@ public interface RepositorieFilm
     public List<Film> getAll(); //Read
     public void update(Film film);
     public boolean delete(Film film);
+    public Film createFilm(Film film);
 }
 

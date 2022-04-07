@@ -24,6 +24,27 @@ public class RepositorieFilmImp implements RepositorieFilm
         return null;
     }
 
+    @Override
+    public Film createFilm(Film film) {
+        String sql = "INSERT INTO film (titulo, categoria, duracion) VALUES(:titulo, :categoria, :duracion)";
+    
+        try (Connection con = sql2o.open()) {
+            int id = (int) con.createQuery(sql,true)
+            .addParameter("titulo", film.getTitulo())
+            .addParameter("categoria", film.getCategoria())
+            .addParameter("duracion", film.getDuracion())
+            .executeUpdate().getKey();
+
+            film.setId(id);
+            return film;
+        
+        }
+        catch (Exception e) {
+            System.out.println(e.getCause() + e.getLocalizedMessage() + "\n");
+        }
+        return null;
+    }
+
     //Metodo update
     @Override
     public void update(Film f) {
@@ -43,4 +64,5 @@ public class RepositorieFilmImp implements RepositorieFilm
         // TODO Auto-generated method stub
         return false;
     }
+
 }
