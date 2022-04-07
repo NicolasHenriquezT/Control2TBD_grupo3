@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### DATABASE CONNECTION ###
+src/main/java/com/example/tbd/Repositories/DatabaseContext.java
