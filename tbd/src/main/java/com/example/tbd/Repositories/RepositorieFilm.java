@@ -7,5 +7,6 @@ public interface RepositorieFilm
 {
     public int countFilms(); //eliminar
     public List<Film> getAll(); 
+    public Film createFilm(Film film);
 }
 
