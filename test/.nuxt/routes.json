@@ -1,0 +1,23 @@
+[
+  {
+    "name": "crear",
+    "path": "/crear",
+    "component": "C:\\\\Users\\\\Ramon Parra C\\\\Desktop\\\\Universidad\\\\TDB\\\\Repositorio\\\\TBD\\\\test\\\\pages\\\\crear.vue",
+    "chunkName": "pages/crear",
+    "_name": "_2c4c0709"
+  },
+  {
+    "name": "inspire",
+    "path": "/inspire",
+    "component": "C:\\\\Users\\\\Ramon Parra C\\\\Desktop\\\\Universidad\\\\TDB\\\\Repositorio\\\\TBD\\\\test\\\\pages\\\\inspire.vue",
+    "chunkName": "pages/inspire",
+    "_name": "_83231548"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\Ramon Parra C\\\\Desktop\\\\Universidad\\\\TDB\\\\Repositorio\\\\TBD\\\\test\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_4eb8bc58"
+  }
+]
