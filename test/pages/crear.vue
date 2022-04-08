@@ -19,6 +19,20 @@
             <button type="button" id="send" class="main">Ingresar Pelicula</button>
             </div>
 
+            <table>
+                <tr>
+                    <th v-for="atr in atributos">
+                        {{ atr }}
+                    </th>
+                </tr>
+                <tr v-for="p in peliculas" :key="p.id">
+                    <td>{{ p.titulo }}</td>
+                    <td>{{ p.categoria }}</td>
+                    <td>{{ p.duracion }}</td>
+                </tr>
+            </table>
+
+
         </form>
         
     </div>
@@ -26,11 +40,25 @@
 <script>
 export default ({
    data(){
-        return{
-            message:'',
-            nuevaPelicula:{}
+        return {
+            message: '',
+            nuevaPelicula: {},
+            peliculas: [{"id":1,"titulo":"titulo1","categoria":"categoria1","duracion":1000},{"id":2,"titulo":"titulo2","categoria":"categoria2","duracion":2000},{"id":3,"titulo":"titulo3","categoria":"categoria3","duracion":3000},{"id":4,"titulo":"titulo4","categoria":"categoria4","duracion":4000},{"id":5,"titulo":"titulo5","categoria":"categoria5","duracion":5000},{"id":6,"titulo":"titulo6","categoria":"categoria6","duracion":6000}],
+            atributos: ['titulo', "categoria", "duracion"],
         }
     },
+
+    methods: {
+    async getFilm() {
+    //   const respuesta = await this.$axios.$get("localhost:8080/film");
+    //   this.peliculas = respuesta;
+      console.log(0);
+    },
+  },
+  //Función que se ejecuta al cargar el componente
+  created: function() {
+    this.getFilm();
+  },
 })
 </script>
 
