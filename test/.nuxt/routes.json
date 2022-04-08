@@ -2,22 +2,22 @@
   {
     "name": "crear",
     "path": "/crear",
-    "component": "C:\\\\Users\\\\Ramon Parra C\\\\Desktop\\\\Universidad\\\\TDB\\\\Repositorio\\\\TBD\\\\test\\\\pages\\\\crear.vue",
+    "component": "C:\\\\Users\\\\Ramon Parra C\\\\Desktop\\\\Nueva carpeta\\\\test\\\\pages\\\\crear.vue",
     "chunkName": "pages/crear",
-    "_name": "_2c4c0709"
+    "_name": "_307e10c5"
   },
   {
     "name": "inspire",
     "path": "/inspire",
-    "component": "C:\\\\Users\\\\Ramon Parra C\\\\Desktop\\\\Universidad\\\\TDB\\\\Repositorio\\\\TBD\\\\test\\\\pages\\\\inspire.vue",
+    "component": "C:\\\\Users\\\\Ramon Parra C\\\\Desktop\\\\Nueva carpeta\\\\test\\\\pages\\\\inspire.vue",
     "chunkName": "pages/inspire",
-    "_name": "_83231548"
+    "_name": "_7e450018"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\Ramon Parra C\\\\Desktop\\\\Universidad\\\\TDB\\\\Repositorio\\\\TBD\\\\test\\\\pages\\\\index.vue",
+    "component": "C:\\\\Users\\\\Ramon Parra C\\\\Desktop\\\\Nueva carpeta\\\\test\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_4eb8bc58"
+    "_name": "_4654a8e0"
   }
 ]
