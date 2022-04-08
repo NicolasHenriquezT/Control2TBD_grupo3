@@ -7,7 +7,7 @@ public interface RepositorieFilm
 {
     public List<Film> getAll(); //Read
     public void update(Film film);
-    public boolean delete(Film film);
+    public void delete(int id);
     public Film createFilm(Film film);
 }
 

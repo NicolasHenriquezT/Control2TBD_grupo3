@@ -5,6 +5,8 @@ import java.util.List;
 import com.example.tbd.Repositories.RepositorieFilm;
 import com.example.tbd.Models.Film;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,10 +36,19 @@ public class ServiceFilm {
         repositorieFilm.update(film);
     }
 
+    //Metodo crear
     @PostMapping("/newFilm")
     @ResponseBody
-    public Film createFilm(@RequestBody Film film) {
+    public Film createFilm(@RequestBody Film film) 
+    {
         return repositorieFilm.createFilm(film);
+    }
+
+    //Metodo eliminar
+    @DeleteMapping(value="/film/eliminar/{id}")
+    public void eliminar(@PathVariable(value = "id") int id)
+    {
+        repositorieFilm.delete(id);
     }
 
     

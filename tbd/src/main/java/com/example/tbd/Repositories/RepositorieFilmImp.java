@@ -60,9 +60,15 @@ public class RepositorieFilmImp implements RepositorieFilm
     }
 
     @Override
-    public boolean delete(Film film) {
-        // TODO Auto-generated method stub
-        return false;
+    public void delete(int id) {
+        String sql = "DELETE FROM film WHERE id="+id;
+        System.out.println(sql);
+        try(Connection conn = sql2o.open())
+        {
+            conn.createQuery(sql).executeUpdate();
+        }catch(Exception e)
+        {
+            System.out.println(e.getMessage() + e.getLocalizedMessage()+" error al actualizar\n");
+        }
     }
-
 }
