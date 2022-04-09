@@ -28,12 +28,15 @@
                             {{ att }}
                         </th>
                     </tr>
-                    <tr v-for="p in peliculas" :key="p.id">
+                    <tr v-for="(p, index) in peliculas" :key="index">
                         <td>{{ p.titulo }}</td>
                         <td>{{ p.categoria }}</td>
                         <td>{{ p.duracion }}</td>
                         <td>
-                            <img width="25" height="25" :src="editLogo" />
+                            <nuxt-link :to="{ name: 'update-film', 
+                                              params: { film: p.id }}">
+                                <img width="25" height="25" :src="editLogo" />
+                            </nuxt-link>
                         </td>
                         <td>
                             <img style="fill: red" width="25" height="25" :src="deleteLogo" />
