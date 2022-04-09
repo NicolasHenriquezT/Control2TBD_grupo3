@@ -71,4 +71,18 @@ public class RepositorieFilmImp implements RepositorieFilm
             System.out.println(e.getMessage() + e.getLocalizedMessage()+" error al actualizar\n");
         }
     }
+
+    @Override
+    public Film getById(int id) {
+        String sql = "SELECT * FROM film WHERE id="+ Integer.toString(id);
+
+        try(Connection conn = sql2o.open()){
+            List<Film> l = conn.createQuery(sql).executeAndFetch(Film.class);   
+            return l.get(0);
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage() + e.getLocalizedMessage()+" no conecté \n");
+        }
+        return null;
+    }
 }

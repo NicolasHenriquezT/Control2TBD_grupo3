@@ -9,5 +9,6 @@ public interface RepositorieFilm
     public void update(Film film);
     public void delete(int id);
     public Film createFilm(Film film);
+    public Film getById(int id);
 }
 

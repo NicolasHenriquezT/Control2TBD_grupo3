@@ -10,7 +10,7 @@ public class DatabaseContext {
     @Bean
     public Sql2o sql2o(){
         //Cambiar datos de conexion a base de datos
-        return new Sql2o("jdbc:postgresql://127.0.0.1:5432/tbd", "postgres", "admin");
+        return new Sql2o("jdbc:postgresql://127.0.0.1:5432/tbd", "mguzman", "admin");
 
     }
 } 

@@ -57,7 +57,12 @@ public class ServiceFilm {
     }
 
     
-
+    //Metodo eliminar
+    @RequestMapping(value="/film/{id}", method = RequestMethod.GET)
+    public Film getById(@PathVariable int id)
+    {
+        return repositorieFilm.getById(id);
+    }
 
 
 }
