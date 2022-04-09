@@ -24,7 +24,7 @@
         <div class="table-container">
             <table class="main-table">
                     <tr>
-                        <th v-for="att in atributos">
+                        <th v-for="att in atributos" :key="att">
                             {{ att }}
                         </th>
                     </tr>
@@ -45,6 +45,7 @@ export default ({
             message: '',
             nuevaPelicula: {},
             peliculas: [],
+            temp: {},
             atributos: ["Título", "Categoría", "Duración", "Editar", "Eliminar"],
         }
     },
@@ -63,12 +64,38 @@ export default ({
     },
 
     async send() {
-       try {
-            await this.$axios.post('http://localhost:8080/newfilm',this.nuevaPelicula)
-            .then(res => res.data)
-            .catch(res => res);
-      }catch (error) {
-        console.log('error', error);
+      try {
+        let response = await this.$axios.get("http://localhost:8080/film");
+        this.temp = response.data;
+        var flag = 0;
+        for (var i = 0; i < this.temp.length; i++) {
+          if (this.temp[i].titulo === this.nuevaPelicula.titulo) {
+            alert("Ya existe la pelicula con ese nombre en la base de datos");
+            i = this.temp.length;
+            flag = 1;
+          }
+        }
+        if(this.nuevaPelicula.titulo == null ){
+            alert("Debe ingresar un titulo");
+        }
+        else if(this.nuevaPelicula.categoria == null){
+            alert("Debe ingresar una categotoria");
+        }
+        else{
+        if (flag == 0) {
+           
+          try {
+            await this.$axios
+              .post("http://localhost:8080/newfilm", this.nuevaPelicula)
+              .then((res) => res.data)
+              .catch((res) => res);
+          } catch (error) {
+            console.log("error", error);
+          }
+        }
+        }
+      } catch (error) {
+        console.log("error", error);
       }
     },
   },
