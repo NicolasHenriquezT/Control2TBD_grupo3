@@ -19,19 +19,22 @@
             <button type="button" id="send" @click="send" class="main">Ingresar Pelicula</button>
             </div>
             <button type="button" id="send" @click="getFilm" class="main">Mostrar Peliculas</button>
-            <table>
-                <tr>
-                    
-                </tr>
-                <tr v-for="p in peliculas" :key="p.id">
-                    <td>{{ p.titulo }}</td>
-                    <td>{{ p.categoria }}</td>
-                    <td>{{ p.duracion }}</td>
-                </tr>
-            </table>
-
-
         </form>
+
+        <div class="table-container">
+            <table class="main-table">
+                    <tr>
+                        <th v-for="att in atributos">
+                            {{ att }}
+                        </th>
+                    </tr>
+                    <tr v-for="p in peliculas" :key="p.id">
+                        <td>{{ p.titulo }}</td>
+                        <td>{{ p.categoria }}</td>
+                        <td>{{ p.duracion }}</td>
+                    </tr>
+            </table>
+        </div>
         
     </div>
 </template>
@@ -42,7 +45,7 @@ export default ({
             message: '',
             nuevaPelicula: {},
             peliculas: [],
-            atributos: ['titulo', "categoria", "duracion"],
+            atributos: ["Título", "Categoría", "Duración", "Editar", "Eliminar"],
         }
     },
 
@@ -71,12 +74,39 @@ export default ({
   },
   //Función que se ejecuta al cargar el componente
   created: function() {
-      
+      this.getFilm();
   },
 })
 </script>
 
 <style>
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+/* Estilizar tablas */
+
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    border-bottom: 1px solid black;
+    line-height: 20px;
+}
+
+th, td {
+    padding: 5px;
+}
+
+
+.table-container{
+    display: flex;
+    justify-content: center;
+}
+
 .Contenedora{
     padding: .5rem 1rem;
     color:rgb(0, 0, 0);
