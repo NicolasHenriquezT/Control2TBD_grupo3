@@ -32,6 +32,12 @@
                         <td>{{ p.titulo }}</td>
                         <td>{{ p.categoria }}</td>
                         <td>{{ p.duracion }}</td>
+                        <td>
+                            <img width="25" height="25" :src="editLogo" />
+                        </td>
+                        <td>
+                            <img style="fill: red" width="25" height="25" :src="deleteLogo" />
+                        </td>
                     </tr>
             </table>
         </div>
@@ -39,13 +45,19 @@
     </div>
 </template>
 <script>
+import editLogo from '../static/edit_icon.svg'
+import deleteLogo from '../static/delete_icon.svg'
+
 export default ({
-   data(){
+    
+    data(){
         return {
             message: '',
             nuevaPelicula: {},
             peliculas: [],
             atributos: ["Título", "Categoría", "Duración", "Editar", "Eliminar"],
+            editLogo,
+            deleteLogo,
         }
     },
 
