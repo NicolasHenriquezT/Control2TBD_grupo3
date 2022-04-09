@@ -1,10 +1,13 @@
 package com.example.tbd.Services;
 
-import java.util.List; 
+import java.util.List;
+import java.util.Map;
 
 import com.example.tbd.Repositories.RepositorieFilm;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.example.tbd.Models.Film;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 @RestController
 public class ServiceFilm {
 
@@ -30,6 +34,7 @@ public class ServiceFilm {
     }
 
     //Metodo actualizar
+    
     @RequestMapping(value="/film/actualizar",method=RequestMethod.PUT)
     public void actualizarFilms(@RequestBody Film film)
     {
@@ -37,8 +42,8 @@ public class ServiceFilm {
     }
 
     //Metodo crear
-    @PostMapping("/newFilm")
-    @ResponseBody
+    
+    @RequestMapping(value = "/newfilm", method=RequestMethod.POST)
     public Film createFilm(@RequestBody Film film) 
     {
         return repositorieFilm.createFilm(film);

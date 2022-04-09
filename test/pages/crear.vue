@@ -4,11 +4,11 @@
         <form>
             <div class="IngresoNombrePelicula">
             <label for="nombrePelicula">Ingrese el nombre de la pelicula</label>
-            <input type="text" id="nombrePelicula1" v-model="nuevaPelicula.nombre">
+            <input type="text" id="nombrePelicula1" v-model="nuevaPelicula.titulo">
             </div>
             <div class="IngresoDescripcionPelicula">
                 <label for="descripcionPelicula">Ingrese la categoria de la pelicula</label>
-                <input type="text" id="descripcionPelicula2" v-model="nuevaPelicula.descripcion">
+                <input type="text" id="descripcionPelicula2" v-model="nuevaPelicula.categoria">
                 
             </div>
             <div class="IngresoDuracionPelicula">
@@ -16,14 +16,12 @@
                 <input type="number" id="duracionPelicula1" v-model="nuevaPelicula.duracion">
             </div>
             <div>
-            <button type="button" id="send" class="main">Ingresar Pelicula</button>
+            <button type="button" id="send" @click="send" class="main">Ingresar Pelicula</button>
             </div>
-
+            <button type="button" id="send" @click="getFilm" class="main">Ingresar Pelicula</button>
             <table>
                 <tr>
-                    <th v-for="atr in atributos">
-                        {{ atr }}
-                    </th>
+                    
                 </tr>
                 <tr v-for="p in peliculas" :key="p.id">
                     <td>{{ p.titulo }}</td>
@@ -38,26 +36,42 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
 export default ({
    data(){
         return {
             message: '',
             nuevaPelicula: {},
-            peliculas: [{"id":1,"titulo":"titulo1","categoria":"categoria1","duracion":1000},{"id":2,"titulo":"titulo2","categoria":"categoria2","duracion":2000},{"id":3,"titulo":"titulo3","categoria":"categoria3","duracion":3000},{"id":4,"titulo":"titulo4","categoria":"categoria4","duracion":4000},{"id":5,"titulo":"titulo5","categoria":"categoria5","duracion":5000},{"id":6,"titulo":"titulo6","categoria":"categoria6","duracion":6000}],
+            peliculas: [],
             atributos: ['titulo', "categoria", "duracion"],
         }
     },
 
     methods: {
     async getFilm() {
-    //   const respuesta = await this.$axios.$get("localhost:8080/film");
-    //   this.peliculas = respuesta;
-      console.log(0);
+       try {
+        console.log(this.items)
+        let response = await axios.get('http://localhost:8080/film');
+        this.peliculas = response.data;
+        console.log(this.peliculas)
+        console.log(response) 
+      } catch (error) {
+        console.log('error', error);
+      }
+    },
+
+    async send() {
+        console.log(this.nuevaPelicula);
+       try {
+        let response = await axios.post('http://localhost:8080/newfilm',this.nuevaPelicula);
+      } catch (error) {
+        console.log('error', error);
+      }
     },
   },
   //Función que se ejecuta al cargar el componente
   created: function() {
-    this.getFilm();
+      
   },
 })
 </script>
