@@ -1,21 +1,24 @@
 <template>
     <div class="main-container">
-        <form>
+        <form class="update-container">
             <label for="filmName">Ingrese el nombre de la pelicula</label>
             <input type="text" id="filmName" v-model="film.titulo">
 
-                
+                    
             <label for="filmCategory">Ingrese la categoría de la pelicula</label>
-            <input type="number" id="filmCategory" v-model="film.duracion">
+            <input type="text" id="filmCategory" v-model="film.categoria">
 
-            
+                
             <label for="filmLength">Ingrese la duración de la pelicula</label>
-            <input type="text" id="filmLength" v-model="film.categoria">
-            
-            <!-- <button type="button" id="send" @click="send" class="main">Ingresar Pelicula</button> -->
-            
+            <input type="number" id="filmLength" v-model="film.duracion">
+                
+            <button type="button" @click="updateFilm" class="edit-btn">Actualizar Pelicula</button>
+                
         </form>
-        <nuxt-link to="/">Volver</nuxt-link>
+
+        <button class="back-btn">
+            <nuxt-link to="/">Volver</nuxt-link>
+        </button>
     </div>
 </template>
 
@@ -23,41 +26,94 @@
 export default ({
     data(){
         return {
+            oldFilm: {},
             film: {},
         }
     },
 
     methods: {
-    async getFilm() {
-    //    try {
-    //     console.log(this.items)
-    //     let response = await this.$axios.get('http://localhost:8080/film');
-    //     this.peliculas = response.data;
-    //     console.log(this.peliculas)
-    //     console.log(response) 
-    //   } catch (error) {
-    //     console.log('error', error);
-    //   }
-    },
+        async updateFilm() {
+            let old = this.oldFilm;
+            let update = this.film;
+
+            if( old.titulo === update.titulo &&
+                old.duracion === update.duracion &&
+                old.categoria === update.categoria ){
+                    alert("No existen cambios. Inténtelo de nuevo.");
+                    return;
+            }
+            
+            try {
+                let response = await this.$axios.put('http://localhost:8080/film/actualizar', update);
+            } catch (error) {
+                console.log('error: ', error);
+            }
+        },
   },
 
   //Función que se ejecuta al cargar el componente
   mounted: async function() {
       let filmId = this.$route.params.film;
       try {
-        let response = await this.$axios.get('film/' + filmId);
+        let response = await this.$axios.get('http://localhost:8080/film/' + filmId);
+        this.oldFilm = {...response.data};
         this.film = response.data;
       } catch (error) {
         console.log(error);
       }
   },
+
+
 })
 </script>
 
 <style>
-    .main-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+button {
+    cursor: pointer;
+    padding: .5rem;
+    border-radius: 0.125rem;
+    background-color: white;
+    transition: background-color 150ms ease-in-out;
+    border: 0;
+    border-bottom: 2px solid black;
+}
+
+button:hover {
+    background-color: rgb(144, 209, 255);
+}
+
+
+button > a {
+    color: black;
+    text-decoration: none;
+}
+.main-container{
+    margin-top: 2rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.update-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1rem;
+    width: 60%;
+}
+
+.update-container > label{
+    margin-bottom: .5rem;
+}
+
+.update-container > input{
+    padding-left: .5rem;
+    margin-bottom: 1rem;
+    height: 25px;
+}
+
+.back-btn{
+    display: block;
+}
 </style>
