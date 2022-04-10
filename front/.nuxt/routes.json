@@ -1,9 +1,16 @@
 [
   {
+    "name": "update-film",
+    "path": "/update/:film?",
+    "component": "C:\\\\Users\\\\israe\\\\OneDrive\\\\Escritorio\\\\universidad\\\\7mo semestre\\\\TDB\\\\Laboratorio TBD\\\\TBD\\\\front\\\\pages\\\\update\\\\_film.vue",
+    "chunkName": "pages/update/_film",
+    "_name": "_1861d52e"
+  },
+  {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\Ramon Parra C\\\\Desktop\\\\Universidad\\\\TDB\\\\Repositorio\\\\TBD\\\\front\\\\pages\\\\index.vue",
+    "component": "C:\\\\Users\\\\israe\\\\OneDrive\\\\Escritorio\\\\universidad\\\\7mo semestre\\\\TDB\\\\Laboratorio TBD\\\\TBD\\\\front\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_52b2dbf3"
+    "_name": "_7d565806"
   }
 ]

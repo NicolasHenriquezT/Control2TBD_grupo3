@@ -38,8 +38,10 @@
                                 <img width="25" height="25" :src="editLogo" />
                             </nuxt-link>
                         </td>
-                        <td>
-                            <img style="fill: red" width="25" height="25" :src="deleteLogo" />
+                        <td>                          
+                            <button type="button" @click="deleteFilm(p.id)" class="main">
+                                <img style="fill: red" width="25" height="25" :src="deleteLogo" />       
+                            </button>                         
                         </td>
                     </tr>
             </table>
@@ -56,6 +58,7 @@ export default ({
     data(){
         return {
             message: '',
+            url: '',
             nuevaPelicula: {},
             peliculas: [],
             temp: {},
@@ -113,7 +116,20 @@ export default ({
         console.log("error", error);
       }
     },
+    //método para eliminar una pelicula
+    async deleteFilm(id) {
+       try {
+           console.log(id);
+            await this.$axios
+              .delete("http://localhost:8080/film/eliminar/"+id)
+              .then((res) => res.data)
+              .catch((res) => res);
+          } catch (error) {
+            console.log("error", error);
+          }
+    },
   },
+  
   //Función que se ejecuta al cargar el componente
   created: function() {
       this.getFilm();
