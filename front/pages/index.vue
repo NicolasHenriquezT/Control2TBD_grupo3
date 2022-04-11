@@ -39,7 +39,7 @@
                             </nuxt-link>
                         </td>
                         <td>                          
-                            <button type="button" @click="deleteFilm(p.id)" class="main">
+                            <button type="button" @click="deleteFilm(index, p.id)" class="main">
                                 <img style="fill: red" width="25" height="25" :src="deleteLogo" />       
                             </button>                         
                         </td>
@@ -117,7 +117,8 @@ export default ({
       }
     },
     //método para eliminar una pelicula
-    async deleteFilm(id) {
+    async deleteFilm(index, id) {
+       this.peliculas.splice(index,1);
        try {
            console.log(id);
             await this.$axios
