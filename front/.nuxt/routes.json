@@ -3,14 +3,12 @@
     "name": "update-film",
     "path": "/update/:film?",
     "component": "C:\\\\Users\\\\bryan\\\\Desktop\\\\TBD Grupo 3\\\\front\\\\pages\\\\update\\\\_film.vue",
-    "chunkName": "pages/update/_film",
-    "_name": "_04e13e74"
+    "chunkName": "pages/update/_film"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\bryan\\\\Desktop\\\\TBD Grupo 3\\\\front\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_f59608c4"
+    "chunkName": "pages/index"
   }
 ]

@@ -107,11 +107,15 @@ export default ({
               .post("http://localhost:8080/newfilm", this.nuevaPelicula)
               .then((res) => res.data)
               .catch((res) => res);
+
           } catch (error) {
             console.log("error", error);
           }
+          location. reload()
         }
+        
         }
+        
       } catch (error) {
         console.log("error", error);
       }
