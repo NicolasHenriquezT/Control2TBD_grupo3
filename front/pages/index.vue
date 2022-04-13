@@ -16,7 +16,7 @@
                 <input type="number" id="duracionPelicula1" v-model="nuevaPelicula.duracion">
             </div>
             <div>
-            <button type="button" id="send" @click="send" class="main">Ingresar Pelicula</button>
+            <button type="reset" id="send" @click="send" class="main">Ingresar Pelicula</button>
             </div>
             <button type="button" id="send" @click="getFilm" class="main">Mostrar Peliculas</button>
         </form>
@@ -111,7 +111,8 @@ export default ({
           } catch (error) {
             console.log("error", error);
           }
-          location. reload()
+          this.peliculas.push({...this.nuevaPelicula})
+          this.nuevaPelicula = {}
         }
         
         }
@@ -137,7 +138,7 @@ export default ({
   
   //Función que se ejecuta al cargar el componente
   created: function() {
-      this.getFilm();
+      
   },
 })
 </script>
@@ -173,11 +174,11 @@ th, td {
 .Contenedora{
     padding: .5rem 1rem;
     color:rgb(0, 0, 0);
-    background:rgb(255, 255, 255);
     font-size: 1rem;
     text-align: center;
-    width: 100%;
-    display:inline-block;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
 }
 .IngresoNombrePelicula{
     color:rgb(0, 0, 0)

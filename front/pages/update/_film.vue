@@ -7,10 +7,6 @@
                     
             <label for="filmCategory">Ingrese la categoría de la pelicula</label>
             <input type="text" id="filmCategory" v-model="film.categoria">
-
-                
-            <label for="filmLength">Ingrese la duración de la pelicula</label>
-            <input type="number" id="filmLength" v-model="film.duracion">
                 
             <button type="button" @click="updateFilm" class="edit-btn">Actualizar Pelicula</button>
                 
@@ -37,8 +33,7 @@ export default ({
             let update = this.film;
 
             if( old.titulo === update.titulo &&
-                old.duracion === update.duracion &&
-                old.categoria === update.categoria ){
+                old.duracion === update.duracion){
                     alert("No existen cambios. Inténtelo de nuevo.");
                     return;
             }

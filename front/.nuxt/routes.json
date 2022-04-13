@@ -2,13 +2,15 @@
   {
     "name": "update-film",
     "path": "/update/:film?",
-    "component": "C:\\\\Users\\\\bryan\\\\Desktop\\\\TBD Grupo 3\\\\front\\\\pages\\\\update\\\\_film.vue",
-    "chunkName": "pages/update/_film"
+    "component": "Z:\\\\TBD\\\\front\\\\pages\\\\update\\\\_film.vue",
+    "chunkName": "pages/update/_film",
+    "_name": "_95f19b12"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\bryan\\\\Desktop\\\\TBD Grupo 3\\\\front\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "component": "Z:\\\\TBD\\\\front\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_528e0e4f"
   }
 ]

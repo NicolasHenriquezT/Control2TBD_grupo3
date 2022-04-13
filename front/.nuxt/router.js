@@ -4,8 +4,8 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _04e13e74 = () => interopDefault(import('..\\pages\\update\\_film.vue' /* webpackChunkName: "pages/update/_film" */))
-const _f59608c4 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _95f19b12 = () => interopDefault(import('..\\pages\\update\\_film.vue' /* webpackChunkName: "pages/update/_film" */))
+const _528e0e4f = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -20,11 +20,11 @@ export const routerOptions = {
 
   routes: [{
     path: "/update/:film?",
-    component: _04e13e74,
+    component: _95f19b12,
     name: "update-film"
   }, {
     path: "/",
-    component: _f59608c4,
+    component: _528e0e4f,
     name: "index"
   }],
 
