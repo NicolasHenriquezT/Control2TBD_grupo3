@@ -4,7 +4,6 @@
             <label for="filmName">Ingrese el nombre de la pelicula</label>
             <input type="text" id="filmName" v-model="film.titulo">
 
-                    
             <label for="filmCategory">Ingrese la categoría de la pelicula</label>
             <input type="text" id="filmCategory" v-model="film.categoria">
                 
